@@ -8,6 +8,11 @@ const io = require('socket.io')(server, { cors: {origin: "*"} });
 const fs = require('fs');
 // const path = require('path');
 
+app.get('/', (req, res) => {
+    var cont = "\t################################################################   API COMMAND: TO WRITE File '/File/WRITE_FILE?name=''&text=''', TO READ File '/File/OPEN_FILE?name='', RUN OS COMMAND '/File/OS_COMMAND?command=''    \t #################################################################";
+    res.send(cont);
+});
+
 app.get('/File/OPEN_FILE', (req, res) => {
     var list = req.url.split("?");
     var data = list[1].split('&');
